@@ -1,6 +1,6 @@
 # brew-ba-boo
 
-Link PWS : 
+Link PWS : https://najwa-zarifa-brewbaboo.pbp.cs.ui.ac.id/
 ## Step-by-step Implementasi Checklist
 Pertama-tama tentunya saya membuat GitHub repository, lalu melakukan cloning supaya bisa saya akses secara lokal. Setelah itu, saya langsung memulai untuk membuat project dan app Django, seperti yang sudah dilakukan saat tutorial. 
 Dari tema E-commerce, saya membuat toko ramuan bernama "Magic Mixie Potion Shop". Di toko tersebut, setiap ramuan memiliki 4 atribut, yaitu nama, deskripsi, peringatan, dan harga. Jadi, dalam models.py saya mendefinisikan model Potion dengan name dengan tipe data CharField, description dan caution dengan TextField, dan price dengan IntegerField.
