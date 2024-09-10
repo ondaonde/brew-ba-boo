@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew-ba-boo Potion Store</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body class="background-image">
+    <h1> Welcome to {{ app }} Potion Store</h1>
+    <h2>Please do take a look around and see if there's something interest you. Just be mindful that everything has a price</h2>
+    <div class="card-container">
+        <div class="card">
+            <div class="face front">
+                <h3>I-want-to-dissapear Elixir</h3>
+                <img src="{% static './images/potion.png' %}" alt="Potion Image">
+            </div>
+            <div class="face back">
+                <h3>Ever get embarassed that you want to dissapear to nothingness? As the name suggest, one
+                    gulp of this potion will effectively makes you dissapears even from history! 
+                </h3>
+                <h3 class="caution">CAUTION : This potion only worked overnight, however, once the potion is drink you need to
+                    keep chanting your name or else you will really dissapear to nothingness!! (unless that's 
+                    your intention haha)
+                </h3>
+                <ul>
+                    <li>Since you will dissapear anyway, we will price this only at:</li>
+                    <li class="price">999999999999999999999</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="face front">
+                <h3>Heat Haze Daze Elixir</h3>
+                <img src="{% static './images/potion.png' %}" alt="Potion Image">
+            </div>
+            <div class="face back">
+                <h3>Yes, that is a reference. This is for loser who is too afraid for their future or loser who just can't move on
+                    and wish that the time will be stopped at that moment. How reassuring we have this potion for you!
+                </h3>
+                <h3 class="caution">CAUTION : There's no way back out, that's why we have this potion instead of the one that can rewind time.
+                </h3>
+                <ul>
+                    <li>There's like little to no chance for you to complain about this product, so for the inconvenience, we will
+                        just charge you at:
+                    </li>
+                    <li class="price">5000</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="face front">
+                <h3>Cold Girl Summer Elixir</h3>
+                <img src="{% static './images/potion.png' %}" alt="Potion Image">
+            </div>
+            <div class="face back">
+                <h3>Shout out to that girl who literally can't live without her AC. Since we're promoting environment safe products,
+                    here's the potion to alter your body to withstand the heat just like many desserts animal
+                </h3>
+                <h3 class="caution">CAUTION : There will be no permanent change, but you might find your bodily fluids dried up rather
+                    easily, fall out of body hair, and clogged pores.
+                </h3>
+                <ul>
+                    <li>You will repurchase this like, by at the end of the week, so we will price this at:</li>
+                    <li class="price">20000</li>
+                </ul>
+            </div>
+        </div>
+        <div class="card">
+            <div class="face front">
+                <h3>Pulling All-nighter Elixir</h3>
+                <img src="{% static './images/potion.png' %}" alt="Potion Image">
+            </div>
+            <div class="face back">
+                <h3>A wise man once said, "I'll leave tomorrow's problem for tomorrow me". Guess you're the unlucky "tomorrow me" if you
+                    picked this potion, or maybe you just can't handle coffee.
+                </h3>
+                <h3 class="caution">CAUTION : This potion is NOT the one who will submit your assignment for you. This potion only enchances
+                    your focus, making the process much faster.
+                </h3>
+                <ul>
+                    <li>Since this is like a cup of coffee and we're not a ripoff, the price will be:</li>
+                    <li class="price">15000</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <p>&copy;{{ name }} {{ class }}</p>
+</footer>
+</html>
