@@ -36,6 +36,10 @@
       <a href="{% url 'main:create_potion' %}" class="open-modal">
         <button class="create-button">Brew New Potion</button>
       </a>
+      <a href="{% url 'main:logout' %}">
+        <button>Leave</button>
+      </a>
+      <h5>Last visited: {{ last_login }}</h5>
       {% endblock content %}
 </body>
 <footer>

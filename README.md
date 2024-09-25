@@ -67,5 +67,27 @@ Pertama-tama saya membuat directory baru, yaitu `templates` di ROOT dan membuat 
 - Screenshot JSON by ID
 ![Screenshot JSON by ID](https://github.com/user-attachments/assets/65100dcd-1fcb-4a7d-9e3a-70e53360e1ae)
 </details>
+<details>
+  <summary>Assignment 4</summary>
 
+## Perbedaan HttpResponseRedirect() dengan redirect()
+`HttpResponseRedirect()` dan `redirect()` sama-sama digunakan untuk redirect user ke url di django, namun perbedannya adalah `HttpResponseRedirect()` adalah suatu class yang return HTTP response dengan redirect status code(302), sedangkan `redirect()` adalah fungsi yang mengembalikan objek `HttpResponseRedirect`. Dengan begitu bisa kita simpulkan bahwa `redirect()` adalah wrapper-nya `HttpResponseRedirect`.
+## Cara kerja penghubungan model Product dengan User
+Di app seperti e-commerce, setiap produk yang ada di dalamnya pasti diasosiasikan dengan seorang user yang membuat produk tersebut. Dalam app ini, dengan menghubungkan `Potion` dan `User` model, kita bisa mengasosiasikan potion itu dengan creator-nya, mengambil list of potions yang dibuat oleh masing-masing user, dan menampilkan nama user dengan potion yang dibuatnya. 
+- Di Django, kita bisa menghubungkan produk tersebut dengan user yang sesuai menggunakan foreign key. Foreign key adalah suatu field di model yang akan reference ke primary key model lain. Contoh langsung untuk menghubungkan suatu produk ke user terkait di kode yang sudah ditulis, adalah di `Potion` memiliki field foreign key yang disebut user yang mana akan me-referensi langsung ke `User` model. Selain itu ada argumen `on_delete=models.CASCADE`, yang akan membuat user dihapus, maka semua produk yang terkait dengan user tersebut juga akan dihapus.  
+- Di atas fungsi `show_main()` pada `views.py` ada decorator `@login_required` yang fungsinya adalah memastikan bahwa hanya pengguna yang diautentikasi yang dapat mengakses tampilan tersebut
+- Di fungsi `show_main()` pada `views.py` juga ada argumen `potions = Potion.objects.filter(user=request.user)`. Argumen tersebut akan mengembalikan queryset dari `Potion` yang berhubungan dengan user yang sesuai.
+
+## Perbedaan Authentication and Authoritation pada Django
+- Autentichation adalah tentang verification dari  identitas pengguna. Di app ini, contoh authentication ada di `AuthenticationForm` di fungsi `login_user()` . `AuthenticationForm` digunakan untuk memvalidasi kredensial pengguna (nama pengguna dan kata sandi). Jika formulir valid, maka fungsi login akan dipanggil untuk memasukkan pengguna.
+- Authorization adalah tentang bagaimana akses ke resources dikontrol berdasarkan identitas dan izin yang dimiliki pengguna. Di app ini, contoh authorization ada di `@login_required` decorator di atas fungsi `show_main()`. Decorator ini ada untuk memeriksa apakah pengguna telah diautentikasi sebelum mengizinkan akses ke tampilan show_main. Jika pengguna tidak diautentikasi, mereka akan diarahkan ke halaman login.
+
+## Pengelolaan Cookies pada Django
+Ketika user logs ke aplikasi Django, Django akan membuat random session ID dan menyimpannya ke user session database dab sistem authetication akan set session cookie di browser-nya user. Isi cookie ini isinya unique session ID yang mengidentifikasi sesi user. Pada request berikutnya, browser akan mengirimkan cookie kembali ke server lalu Django akan memeriksa session ID di cookie dengan sesi database yang akan memeriksa identitas user. Selain authetication, cookies juga digunakan untuk menyimpan preferensi pengguna dan track behaviour user.
+
+Tidak semua cookie aman digunakan. Cookie bisa saja dicuri, dimanipulasi, dirubah maupun dihapus oleh malicious person. Jadi, untuk mengurangi risiko tersebut, kita bisa menggunakan secure protocols(HTTPS) untuk mengenkripsi data cookie. 
+
+## Step-by-step Implementasi Checklist
+Dalam pengerjaan assignment kali ini, saya pertama-tama runserver terlebih dahulu untuk memastikan bahwa assignment saya sebelum-sebelumnya tidak ada masalah dan saya bisa fokus mengerjakan assignment yang sekarang, assignment 4. Setelah itu saya membuat fungsi dan form registrasi dengan mengimport `UserCreationForm`, menambahkan fungsi `register.py`, membuat templates `register.html` lalu menambahkan path url nya di `urls.py`. Selanjutnya saya membuat mekanisme login dan logout yang kurang lebih sama dengan register, hanya saja untuk login, ada satu step tambahan yaitu menambahkan authenticate. Setelah selesai dengan mekanisme register, login, logout, yang selanjutnya saya lakukan adalah merestriksi akses halaman main menggunakan decorator `@login_required`. Setelah runserver dan memastikan register, login, logout sudah berjalan semestinya saya kemudian mengimplementasi cookies untuk `last_login`. Lalu yang terakhir saya menghubungkan model dengan user supaya product yang tampil akan sesuai dengan user yang membuatnya.
+</details>
 
