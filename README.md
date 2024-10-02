@@ -103,6 +103,7 @@ Digunakan untuk memilih element berdasarkan class atribute yang dimiliki element
 Digunakan untuk memilih element berdasarkan ID attribute yang dimiliki element (ex://`#header`, `#radio-button`)
 4. Combinators
 Menggabungkan multiple selectors untuk memilih element berdasarkan hubungannya (ex://`>` untuk target direct children)
+
 Ketika banyak tipe selector yang digunakan di saat yang bersamaan, maka urutan prioritasnya adalah seperti ini: Inline > ID > Class > Attribute
 ## Peran Responsive Design dalam Pengembangan Aplikasi Web
 Responsive Design umumnya ada untuk website yang kita gunakan setiap hari bisa beradaptasi dengan ukuran layar, perangkat, dan orientasi yang berbeda. Dengan responsive web design, kita sebagai pengguna dapat mengakses website di beragai perangkat dengan berbagai ukuran layar dengan tingkat fungsionalitas yang sama. Untuk contoh aplikasi yang sudah mengaplikasikan responsive web design, kita ambil contohnya, yaitu Youtube. Ketika kita membuka website Youtube di Laptop, di Mobile, dan di Tab akan menunjukkan tampilan video dengan ukuran berbeda-beda. Sedangkan untuk yang belum mengaplikasikannya adalah Siak-NG.
