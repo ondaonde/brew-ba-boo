@@ -6,17 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block content %}
+    {% include 'navbar.html' %}
     <title>Brew-ba-boo Potion Store</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body class="background-image">
     {% if not potions %}
-    <h1 class="no-potion">You haven't brew any potion D:</h1>
+    <img src="{% static './images/confused.png' %}" alt="Wubbaboo Confused" width="200" height="200">
+    <h1 class="no-potion">You haven't brew any potion!</h1>
     {% else %}
     <h1> Welcome to {{ app }} Potion Store</h1>
     <div class="card-container">
         {% for potion in potions %}
         <div class="card">
+            <a href="{% url 'main:edit_potion' potion.pk %}">
+              <button>
+                  Edit
+              </button>
+            </a>
+            <a href="{% url 'main:delete_potion' potion.pk %}">
+              <button>
+                  Delete
+              </button>
+          </a>
           <div class="face front">
             <h3>{{ potion.name }}</h3>
             <img src="{% static './images/potion.png' %}" alt="Potion Image">

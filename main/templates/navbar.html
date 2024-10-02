@@ -1,0 +1,21 @@
+{% load static %}
+<style>
+    .nav {
+        background-color: #1f1f1f;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    nav .logo {
+        align-content: flex-start;
+    }
+</style>
+<nav class="nav">
+    <div class="logo">
+        <img src="{% static './images/logo.png' %}" alt="Wubbaboo Logo">
+        <h1>Brew-ba-Boo</h1>
+    </div>
+    <div>
+        <span>Welcome, user {{ user.username }}</span>
+    </div>
+</nav>

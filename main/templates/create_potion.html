@@ -42,6 +42,8 @@
     padding : 10px 20px 10px 20px;
     border-radius: 10px;
     background: black;
+    width: 400px;
+    margin: 5px;
   }
 
   .modal-content h1 {
@@ -56,6 +58,17 @@
 
   .modal-content form {
     color: #1f1f1f;
+  }
+
+  .modal-content tr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal-content td label {
+    display: block;
+    margin-bottom: 10px;
   }
 
   .modal-content td:last-child { 
@@ -104,7 +117,14 @@
     <form method="POST">
       {% csrf_token %}
       <table>
-        {{ form.as_table }}
+        {% for field in form %}
+        <tr>
+          <td>
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+          </td>
+        </tr>
+        {% endfor %}
       </table>
       <div class="button-container">
         <button href="#" onclick="window.history.back()" type="button" class="back-button">Back</button>

@@ -6,9 +6,9 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from main.forms import PotionForm
 from main.models import Potion
 
@@ -34,9 +34,9 @@ def create_potion(request):
     form = PotionForm(request.POST or None)
 
     if form.is_valid() and request.method == "POST":
-        mood_entry = form.save(commit=False)
-        mood_entry.user = request.user
-        mood_entry.save()
+        potion = form.save(commit=False)
+        potion.user = request.user
+        potion.save()
         return redirect('main:show_main')
 
     context = {'form': form}
@@ -91,3 +91,19 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+def edit_potion(request, id):
+    potion = Potion.objects.get(pk = id)
+    form = PotionForm(request.POST or None, instance=potion)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_potion.html", context)
+
+def delete_potion(request, id):
+    potion = Potion.objects.get(pk = id)
+    potion.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))

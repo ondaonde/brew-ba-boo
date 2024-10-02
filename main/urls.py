@@ -1,5 +1,6 @@
 from django.urls import path
 from main.views import show_main, create_potion, show_xml, show_json, show_xml_by_id, show_json_by_id, register, login_user, logout_user
+from main.views import edit_potion, delete_potion
 
 app_name = 'main'
 
@@ -13,4 +14,6 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
+    path('edit-potion/<uuid:id>', edit_potion, name='edit_potion'),
+    path('delete-potion/<uuid:id>', delete_potion, name='delete_potion'),
 ]

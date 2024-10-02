@@ -90,4 +90,26 @@ Tidak semua cookie aman digunakan. Cookie bisa saja dicuri, dimanipulasi, diruba
 ## Step-by-step Implementasi Checklist
 Dalam pengerjaan assignment kali ini, saya pertama-tama runserver terlebih dahulu untuk memastikan bahwa assignment saya sebelum-sebelumnya tidak ada masalah dan saya bisa fokus mengerjakan assignment yang sekarang, assignment 4. Setelah itu saya membuat fungsi dan form registrasi dengan mengimport `UserCreationForm`, menambahkan fungsi `register.py`, membuat templates `register.html` lalu menambahkan path url nya di `urls.py`. Selanjutnya saya membuat mekanisme login dan logout yang kurang lebih sama dengan register, hanya saja untuk login, ada satu step tambahan yaitu menambahkan authenticate. Setelah selesai dengan mekanisme register, login, logout, yang selanjutnya saya lakukan adalah merestriksi akses halaman main menggunakan decorator `@login_required`. Setelah runserver dan memastikan register, login, logout sudah berjalan semestinya saya kemudian mengimplementasi cookies untuk `last_login`. Lalu yang terakhir saya menghubungkan model dengan user supaya product yang tampil akan sesuai dengan user yang membuatnya.
 </details>
+<details>
+  <summary>Assignment 5</summary>
 
+## CSS Selector dan Prioritasnya
+CSS Selector adalah suatu pattern untuk memilih elemen HTML untuk diaplikasian styles. Selector ada beberapa tipe, yaitu:
+1. Element selectors
+Digunakan untuk memilih element berdasarkan tag-nya (ex:// `h1`, `p`, `div`) dan bisa juga inline (ex://`<p style="color: red;">`)
+2. Class selectors
+Digunakan untuk memilih element berdasarkan class atribute yang dimiliki element (ex:// `.header`, `.radio-button`)
+3. ID selectors
+Digunakan untuk memilih element berdasarkan ID attribute yang dimiliki element (ex://`#header`, `#radio-button`)
+4. Combinators
+Menggabungkan multiple selectors untuk memilih element berdasarkan hubungannya (ex://`>` untuk target direct children)
+Ketika banyak tipe selector yang digunakan di saat yang bersamaan, maka urutan prioritasnya adalah seperti ini: Inline > ID > Class > Attribute
+## Peran Responsive Design dalam Pengembangan Aplikasi Web
+Responsive Design umumnya ada untuk website yang kita gunakan setiap hari bisa beradaptasi dengan ukuran layar, perangkat, dan orientasi yang berbeda. Dengan responsive web design, kita sebagai pengguna dapat mengakses website di beragai perangkat dengan berbagai ukuran layar dengan tingkat fungsionalitas yang sama. Untuk contoh aplikasi yang sudah mengaplikasikan responsive web design, kita ambil contohnya, yaitu Youtube. Ketika kita membuka website Youtube di Laptop, di Mobile, dan di Tab akan menunjukkan tampilan video dengan ukuran berbeda-beda. Sedangkan untuk yang belum mengaplikasikannya adalah Siak-NG.
+## Perbedaan margin, border, dan padding
+Mudahnya margin adalah ruang di luar elemen, border adalah batas yang terlihat di sekitar elemen, dan padding adalah ruang di dalam elemen. Ketiganya adalah properti CSS, jadi untuk aplikasinya bisa kita lakukan menggunakan keempat CSS Selector yang sudah disebutkan di atas.
+## Konsep flex box dan grid layout
+Flex box adalah CSS Layout Mode untuk membuat layout yang flexible dan responsive. Flex box biasanya mencakup atau menggunakan container yang menjadi parent element-element di bawahnya. Flex box juga menggunakan sumbu utama(horizontal atau vertical) dan sumbu silang, sumbu yang tegak lurus dengan sumbu utama. Sedangkan, grid layout adalah layout 2 dimensi untuk membuat layout yang lebih kompleks. Sama seperti flex box, grid layout juga menggunakan container untuk menampung children, tapi yang membedakan flex box dengan grid layout adalah grid layout memiliki grid tracks dan grid cells yang membuat grid itu sendiri.
+## Step-by-step Implementasi Checklist
+Karena sebelum-sebelumnya saya sudah mengimplementasikan responsive design di aplikasi Brew-ba-boo ini, jadi kali ini saya kurang lebih hanya menambahkan fitur-fitur baru saja seperti Navigation Bar, Create Potion dan Delete Potion. Pertama-tama saya menambahkan Tombol Create Potion dan Delete Potion di container yang menampung card itu sendiri karena card saya memiliki dua bagian, depan dan belakang, dan jika di-hover akan otomatis berbalik. Jika tombol itu akan terus-terus ter-hover nanti akan menyulitkan user. Jadi, karena itu button edit dan delete ada di atas kanan card. Setelah itu saya menambahkan navigation bar yang hanya berisi logo Brew-ba-boo dan `Welcome, user {{user.username}}` dan button untuk logout di kanannya. Navigation Bar hanya sedikit fungsinya karena memang fungsi dari aplikasi itu sendiri belum begitu banyak, mungkin selanjutnya akan ditambahkan seiring bertambahnya fitur.
+</details>
