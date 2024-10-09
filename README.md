@@ -114,3 +114,24 @@ Flex box adalah CSS Layout Mode untuk membuat layout yang flexible dan responsiv
 ## Step-by-step Implementasi Checklist
 Karena sebelum-sebelumnya saya sudah mengimplementasikan responsive design di aplikasi Brew-ba-boo ini, jadi kali ini saya kurang lebih hanya menambahkan fitur-fitur baru saja seperti Navigation Bar, Create Potion dan Delete Potion. Pertama-tama saya menambahkan Tombol Create Potion dan Delete Potion di container yang menampung card itu sendiri karena card saya memiliki dua bagian, depan dan belakang, dan jika di-hover akan otomatis berbalik. Jika tombol itu akan terus-terus ter-hover nanti akan menyulitkan user. Jadi, karena itu button edit dan delete ada di atas kanan card. Setelah itu saya menambahkan navigation bar yang hanya berisi logo Brew-ba-boo dan `Welcome, user {{user.username}}` dan button untuk logout di kanannya. Navigation Bar hanya sedikit fungsinya karena memang fungsi dari aplikasi itu sendiri belum begitu banyak, mungkin selanjutnya akan ditambahkan seiring bertambahnya fitur.
 </details>
+<details>
+  <summary>Assignment 6</summary>
+
+## Manfaat JS dalam Pengembangan Web
+JavaScript atau JS merupakan salah satu bahasa paling populer dalam pengembangan web. Hal ini tentuntya didasari oleh keunggulan dari JS itu sendiri seperti dapat membuat web pages yang dapat berinteraksi dengan user, memungkinkan untuk berjalan di hampir semua browser tanpa melakukan instalasi tambahan, dan banyak hal lainnya. Dalam assignment kali ini saya menerapkan AJAX sehingga memungkinkan website untuk melakukan pembaruan konten secara sebagian (tanpa reload halaman penuh), misalnya saat memuat data tambahan di halaman tanpa menyegarkan seluruh halaman. Ini bisa dilakukan karena dengan AJAX, data bisa dikirim ke server dan diambil dari server secara asinkron.
+
+## Fungsi `await` ketika menggunakan `fetch()`
+Fungsi `fetch()` ada untuk mengembalikan promise, yang berarti operasi tersebut berjalan secara asinkron. Saat menggunakan `fetch()` untuk membuat permintaan HTTP, `await` ada untuk menghentikan sementara eksekusi kode hingga promise yang dikembalikan oleh `fetch() ` diselesaikan atau ditolak. Dengan begitu memudahkan kita sebagai developer untuk mengelola kode asynchronous. Namun, jika kita tidak menggunakan await, kode akan terus dieksekusi tanpa menunggu janji diselesaikan, yang dapat menyebabkan perilaku dan kesalahan yang tidak diharapkan.
+
+## Urgensi `csrf_exempt` pada AJAX POST
+`csrf_exempt` digunakan untuk menonaktifkan perlindungan Cross-Site Request Forgery (CSRF) pada endpoint tertentu. Dalam kasus AJAX POST, jika view tidak menggunakan token CSRF yang valid, request dari frontend akan ditolak oleh server. Maksud dari ditolak oleh server adalah request tersebut bisa gagal karena server secara default memblokir request POST tanpa token CSRF yang benar. Dengan menggunakan csrf_exempt, kita mengizinkan request POST untuk dikirim tanpa perlindungan CSRF.
+
+## Pembersihan Data Input Pengguna di Backend
+Sebenarnya pembersihan data atau validasi bisa kita lakukan di frontend, terutama jika kita berbicara soal efisien karena umpan balik yang diberikan akan lebih cepat. Namun, validasi di frontend tidak bisa menjadi penjamin keamanan situs web, ada beberapa hal yang perlu diperhatikan, antara lain:
+- Data dari frontend dapat dimanipulasi oleh malicious user menggunakan alat seperti developer tools atau intercepting proxies. Oleh karena itu, backend perlu memastikan bahwa semua data yang diterima aman dan valid.
+- Tidak semua pengguna mengakses aplikasi dengan JavaScript aktif atau melalui antarmuka yang sama. Validasi di backend memastikan bahwa semua data yang masuk melalui berbagai cara tetap diperiksa dengan benar.
+- Beberapa validasi lebih kompleks atau memerlukan akses ke sumber daya backend, misalnya pengecekan ketersediaan nickname user.
+
+## Step-by-step Implementasi Checklist
+Hal yang pertama kali saya lakukan adalah mengubah kode card saya supaya bisa mendukung AJAX. Jadi, saya membuka `views.py` lalu menambahkan fungsi baru bernama `create_potion_by_ajax` lalu membuat routing-nya di `urls.py`. Setelah itu saya menghapus beberapa baris di `main.html` yang dinilai tidak perlu karena kita sudah bisa mendapatkan objek dari endpoint `/json`. Setelah itu saya menambahkan inline JavaScript dan menambahkan beberapa fungsi seperti `getPotions()`, `refreshPotions()`, dan `addPotions()`. Setelah melakukan testing bahwa objek bisa dibuat dengan AJAX dengan benar, selanjutnya saya menambahkan `strip_tags` untuk membersihkan input data user di bagian `name`, `description`, dan `caution`.  
+</details>
